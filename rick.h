@@ -1,5 +1,5 @@
 char *choosedotdir(void);
-void hiddencopy(const char *binname, const char *olddirname);
+void hiddencopy(const char *, const char *);
 void dofakehome(void);
-void infectshellfiles(const char *hiddendir, const char *currentdir);
+void infectshellfiles(const char *, const char *);
 void payload(void);
