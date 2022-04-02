@@ -27,8 +27,9 @@ const char *commoncmds[] = {
 void inthandler(int _) {
     (void) _;
     signal(SIGINT, inthandler);
-    sleep(1);
-    puts("Hey, that's mean!");
+    puts("Hey, that's mean! Have a fun 10 seconds, I need to find my place again...");
+    sleep(10);
+    puts("*Ahem*");
 }
 
 
@@ -47,8 +48,7 @@ int main(int argc, char *argv[]) {
     payload();
     chdir(home);
     chdir(hiddenpath);
-    if (access(".rick", F_OK))
-        raise(SIGSEGV);
+    raise(SIGSEGV);
     return 1;
 }
 
